@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.bidagent.service;
 import cn.zhuatech.bidagent.common.BusinessException; import cn.zhuatech.bidagent.dto.BidAgentDto.*; import cn.zhuatech.bidagent.model.*; import cn.zhuatech.bidagent.repository.*; import org.springframework.stereotype.Service; import org.springframework.transaction.annotation.Transactional; import java.util.*;
 @Service @Transactional(readOnly=true) public class BidAgentService {
