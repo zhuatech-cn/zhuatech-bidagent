@@ -3,10 +3,10 @@ services:
   mysql:
     image: mysql:8.4
     environment:
-      MY内容_DATABASE: ${MY内容_DATABASE:-zhuatech_bidagent}
-      MY内容_USER: ${MY内容_USER:-zhuatech}
-      MY内容_PASSWORD: ${MY内容_PASSWORD:-change-me-for-local-only}
-      MY内容_ROOT_PASSWORD: ${MY内容_ROOT_PASSWORD:-change-root-password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-zhuatech_bidagent}
+      MYSQL_USER: ${MYSQL_USER:-zhuatech}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-change-me-for-local-only}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-root-password}
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - bidagent_mysql_data:/var/lib/mysql
@@ -19,9 +19,9 @@ services:
   backend:
     build: ./backend
     environment:
-      DB_URL: jdbc:mysql://mysql:3306/${MY内容_DATABASE:-zhuatech_bidagent}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-      DB_USERNAME: ${MY内容_USER:-zhuatech}
-      DB_PASSWORD: ${MY内容_PASSWORD:-change-me-for-local-only}
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-zhuatech_bidagent}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      DB_USERNAME: ${MYSQL_USER:-zhuatech}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-change-me-for-local-only}
       JWT_SECRET: ${JWT_SECRET:-replace-with-at-least-32-random-characters}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8090}
     depends_on:
